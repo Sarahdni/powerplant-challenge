@@ -1,6 +1,6 @@
 import pytest
-from src.models import PowerPlant, Fuels
-from src.optimizer import ProductionOptimizer
+from models import PowerPlant, Fuels
+from optimizer import ProductionOptimizer
 
 @pytest.fixture
 def optimizer():

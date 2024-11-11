@@ -1,7 +1,7 @@
 import logging
 from flask import Flask, request, jsonify
-from src.models import PowerPlant, Fuels, PowerPlantOutput
-from src.optimizer import calculate_production_plan
+from models import PowerPlant, Fuels, PowerPlantOutput
+from optimizer import calculate_production_plan
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
