@@ -40,3 +40,15 @@ class Fuels:
             all(price >= 0 for price in [self.gas, self.kerosine, self.co2]) and
             0 <= self.wind <= 100
         )
+
+@dataclass
+class PowerPlantOutput:
+    """
+    Represents the power output for a plant.
+
+    Attributes:
+        name: Name of the power plant
+        p: Power output in MW
+    """
+    name: str
+    p: float
