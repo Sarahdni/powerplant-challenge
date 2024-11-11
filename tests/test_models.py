@@ -15,3 +15,15 @@ def test_fuels_validation():
     """Test fuel validation"""
     invalid_fuels = Fuels(gas=-1, kerosine=50.8, co2=20, wind=60)
     assert invalid_fuels.validate() is False
+
+def test_fuels_validation_errors():
+    """Test various invalid fuels configurations"""
+    invalid_fuels = [
+        Fuels(gas=-1, kerosine=50.8, co2=20, wind=60),     # negative gas
+        Fuels(gas=13.4, kerosine=-1, co2=20, wind=60),     # negative kerosine
+        Fuels(gas=13.4, kerosine=50.8, co2=-1, wind=60),   # negative co2
+        Fuels(gas=13.4, kerosine=50.8, co2=20, wind=-10),  # wind < 0
+        Fuels(gas=13.4, kerosine=50.8, co2=20, wind=150)   # wind > 100
+    ]
+    for fuels in invalid_fuels:
+        assert fuels.validate() is False
